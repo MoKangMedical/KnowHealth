@@ -1,151 +1,277 @@
-# KnowHealth - AI驱动的跨境医疗第二意见平台
+# KnowHealth
 
-> 让全球最好的医疗决策触手可及
+KnowHealth - Medical AI Project
 
-## 🏥 项目概述
+## 项目简介
 
-KnowHealth 是一个 AI 驱动的跨境医疗第二意见平台，利用 AI 技术让患者能够便捷地获取全球顶级医疗专家的第二意见。
+这是一个医疗AI项目，致力于通过人工智能技术解决医疗健康领域的挑战。
 
-### 核心价值
+## 功能特性
 
-- **AI赋能**: 自动翻译、结构化、摘要病历
-- **全球专家**: 梅奥诊所、克利夫兰诊所、谢巴医疗中心等
-- **数字人**: 7×24 AI医疗助手预咨询
-- **可及性**: 比传统服务便宜50%+
+### 核心功能
+- 🏥 医疗AI核心功能
+- 🔬 智能诊断与分析
+- 📊 数据可视化与报告
+- 🤖 多模态交互支持
+- 🔒 数据安全与隐私保护
 
-## 🚀 快速开始
+### 技术特性
+- 🚀 高性能计算
+- 📈 可扩展架构
+- 🔄 实时数据处理
+- 🌐 分布式部署
+- 📱 多平台支持
 
+## 技术栈
+
+### 后端技术
+- **框架**: Python FastAPI, Django, Flask
+- **AI框架**: TensorFlow, PyTorch, Scikit-learn
+- **数据库**: PostgreSQL, MongoDB, Redis
+- **消息队列**: RabbitMQ, Kafka
+- **容器化**: Docker, Kubernetes
+
+### 前端技术
+- **框架**: React, Vue.js, Angular
+- **UI库**: Ant Design, Material-UI, Element UI
+- **可视化**: D3.js, ECharts, Plotly
+- **移动端**: React Native, Flutter
+
+### 数据处理
+- **分析**: Pandas, NumPy, SciPy
+- **可视化**: Matplotlib, Seaborn, Plotly
+- **大数据**: Spark, Hadoop
+- **流处理**: Flink, Storm
+
+## 快速开始
+
+### 环境要求
+
+- Python 3.9+
+- Node.js 16+
+- Docker 20+
+- Git 2.30+
+
+### 安装步骤
+
+1. **克隆仓库**
 ```bash
+git clone https://github.com/MoKangMedical/KnowHealth.git
+cd KnowHealth
+```
+
+2. **后端设置**
+```bash
+# 创建虚拟环境
+python -m venv venv
+source venv/bin/activate  # Linux/Mac
+# venv\Scripts\activate  # Windows
+
 # 安装依赖
 pip install -r requirements.txt
 
-# 启动服务
-python src/api/server.py
-
-# 访问
-# API: http://localhost:8080
-# 文档: http://localhost:8080/docs
-# 前端: open src/frontend/index.html
+# 配置环境变量
+cp .env.example .env
+# 编辑.env文件，配置数据库连接等
 ```
 
-## 📁 项目结构
+3. **前端设置**
+```bash
+cd frontend
+npm install
+npm run build
+```
+
+4. **数据库设置**
+```bash
+# 初始化数据库
+python manage.py migrate
+python manage.py createsuperuser
+```
+
+5. **启动服务**
+```bash
+# 使用Docker Compose（推荐）
+docker-compose up -d
+
+# 或手动启动
+python manage.py runserver
+```
+
+## 项目结构
 
 ```
 KnowHealth/
-├── docs/                    # 文档
-│   └── IMPLEMENTATION_PLAN.md
-├── src/
-│   ├── api/                 # 后端 API
-│   │   ├── server.py        # FastAPI 主应用
-│   │   ├── routes/          # API 路由
-│   │   ├── services/        # 业务逻辑
-│   │   └── models/          # 数据模型
-│   ├── ai/                  # AI 引擎
-│   │   ├── engine.py        # NLP + 专家匹配
-│   │   ├── agents/          # AI Agent
-│   │   └── prompts/         # 提示词模板
-│   ├── frontend/            # 前端
-│   │   ├── index.html       # 首页
-│   │   ├── pages/           # 页面
-│   │   ├── components/      # 组件
-│   │   └── styles/          # 样式
-│   └── integrations/        # 第三方集成
-│       ├── hospitals/       # 医院对接
-│       └── translators/     # 翻译服务
-├── config/                  # 配置
-├── scripts/                 # 脚本
-├── tests/                   # 测试
-├── .env                     # 环境变量
-└── requirements.txt         # Python 依赖
+├── backend/                 # 后端代码
+│   ├── api/                # API接口
+│   ├── models/             # 数据模型
+│   ├── services/           # 业务逻辑
+│   ├── utils/              # 工具函数
+│   └── tests/              # 测试用例
+├── frontend/               # 前端代码
+│   ├── src/               # 源代码
+│   ├── public/            # 静态资源
+│   └── package.json       # 依赖配置
+├── ai-engine/             # AI引擎
+│   ├── models/           # AI模型
+│   ├── training/         # 训练脚本
+│   └── inference/        # 推理服务
+├── data/                  # 数据存储
+│   ├── raw/              # 原始数据
+│   ├── processed/        # 处理后的数据
+│   └── models/           # 训练好的模型
+├── docs/                  # 项目文档
+│   ├── api/              # API文档
+│   ├── user/             # 用户手册
+│   └── dev/              # 开发文档
+├── scripts/               # 脚本工具
+│   ├── deploy/           # 部署脚本
+│   ├── data/             # 数据处理脚本
+│   └── utils/            # 工具脚本
+├── tests/                 # 测试代码
+├── docker-compose.yml     # Docker编排
+├── Dockerfile            # Docker配置
+├── requirements.txt      # Python依赖
+├── .env.example          # 环境变量示例
+├── .gitignore           # Git忽略文件
+└── README.md            # 项目说明
 ```
 
-## 🔌 API 端点
+## API文档
 
-### 认证
+### 主要接口
+
+#### 基础接口
+- `GET /` - 首页
+- `GET /health` - 健康检查
+- `GET /api/v1/status` - 系统状态
+
+#### 数据接口
+- `GET /api/v1/data` - 获取数据列表
+- `POST /api/v1/data` - 上传数据
+- `GET /api/v1/data/<built-in function id>` - 获取特定数据
+
+#### 分析接口
+- `POST /api/v1/analyze` - 数据分析
+- `GET /api/v1/analyze/<built-in function id>` - 获取分析结果
+- `GET /api/v1/reports` - 获取报告列表
+
+#### 用户接口
+- `POST /api/v1/auth/login` - 用户登录
 - `POST /api/v1/auth/register` - 用户注册
-- `POST /api/v1/auth/login` - 登录
+- `GET /api/v1/users/me` - 获取当前用户信息
 
-### 病例
-- `POST /api/v1/cases` - 创建病例
-- `GET /api/v1/cases/:id` - 获取病例详情
-- `POST /api/v1/cases/:id/files` - 上传病历文件
+### 详细文档
 
-### AI 服务
-- `POST /api/v1/ai/summarize` - AI病历摘要
-- `POST /api/v1/experts/match` - 专家匹配
+启动服务后，访问以下地址查看完整API文档：
 
-### 订单 & 支付
-- `POST /api/v1/orders` - 创建订单
-- `POST /api/v1/orders/:id/pay` - 支付
+- **Swagger UI**: http://localhost:8000/docs
+- **ReDoc**: http://localhost:8000/redoc
+- **OpenAPI JSON**: http://localhost:8000/openapi.json
 
-### 专家意见
-- `GET /api/v1/opinions/:case_id` - 获取专家意见
+## 配置说明
 
-## 💰 定价
+### 环境变量
 
-| 服务 | 价格 | 包含 |
-|------|------|------|
-| AI病历分析 | ¥499 | OCR+结构化+摘要+匹配建议 |
-| 标准第二意见 | ¥4,999 | 1位专家+书面报告+1次视频 |
-| 高级多学科 | ¥9,999 | 2-3位专家+详细报告+2次视频 |
-| VIP全程服务 | ¥29,999 | 专家团+翻译+协调+随访 |
-| 年度会员 | ¥99,999/年 | 无限咨询+优先匹配 |
+创建 `.env` 文件并配置以下变量：
 
-## 🏗️ 技术栈
+```bash
+# 基础配置
+DEBUG=True
+SECRET_KEY=your-secret-key
+ALLOWED_HOSTS=localhost,127.0.0.1
 
-- **后端**: FastAPI (Python)
-- **前端**: HTML + Tailwind CSS + Alpine.js
-- **AI**: OpenAI GPT-4o (病历NLP)
-- **翻译**: DeepL API (医学翻译)
-- **OCR**: PaddleOCR (病历识别)
-- **存储**: PostgreSQL + Redis + S3
-- **支付**: Stripe + 支付宝/微信
+# 数据库配置
+DATABASE_URL=postgresql://user:password@localhost:5432/dbname
+REDIS_URL=redis://localhost:6379/0
 
-## 🔒 合规
+# AI服务配置
+OPENAI_API_KEY=your-openai-key
+HUGGINGFACE_TOKEN=your-hf-token
 
-- 端到端加密 (AES-256 + TLS 1.3)
-- HIPAA 合规
-- GDPR 合规
-- 《个人信息保护法》合规
-- 完整审计日志
+# 文件存储配置
+AWS_ACCESS_KEY_ID=your-aws-key
+AWS_SECRET_ACCESS_KEY=your-aws-secret
+AWS_STORAGE_BUCKET_NAME=your-bucket-name
 
-## 📈 路线图
+# 邮件配置
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-email-password
+```
 
-### Phase 1: MVP (当前)
-- [x] 后端API框架
-- [x] AI病历处理引擎
-- [x] 专家匹配算法
-- [x] 数字人预咨询
-- [x] 订单支付流程
-- [x] 前端首页
+## 部署指南
 
-### Phase 2: 扩展
-- [ ] 数据库集成 (PostgreSQL)
-- [ ] 视频会诊集成
-- [ ] 移动端适配
-- [ ] 多语言支持扩展
+### Docker部署（推荐）
 
-### Phase 3: B2B
-- [ ] 企业/保险合作方案
-- [ ] 医院系统对接
-- [ ] 数据分析看板
+1. **构建镜像**
+```bash
+docker build -t KnowHealth .
+```
 
-## 🤝 合作伙伴
+2. **运行容器**
+```bash
+docker run -d -p 8000:8000 --name KnowHealth KnowHealth
+```
 
-- 梅奥诊所 (Mayo Clinic)
-- 克利夫兰诊所 (Cleveland Clinic)
-- 谢巴医疗中心 (Sheba Medical Center)
-- 日本国立癌症中心
-- 三星医疗中心
+3. **使用Docker Compose**
+```bash
+docker-compose up -d
+```
 
-## 📞 联系
+## 测试
 
-- 邮箱: contact@knowhealth.ai
-- 电话: 400-888-KNOW
-- 地址: 上海 · 北京 · 纽约
+### 运行测试
 
-## 📐 理论基础
+```bash
+# 运行所有测试
+python -m pytest tests/
 
-> **Harness理论**：在AI领域，Harness（环境设计）比模型本身更重要。使性能提升64%。
+# 运行特定测试
+python -m pytest tests/test_api.py
 
-> **红杉论点**：从卖工具到卖结果。
+# 生成测试覆盖率报告
+python -m pytest --cov=app tests/
+```
+
+## 贡献指南
+
+我们欢迎任何形式的贡献！请遵循以下步骤：
+
+1. **Fork本仓库**
+2. **创建特性分支**
+```bash
+git checkout -b feature/AmazingFeature
+```
+
+3. **提交更改**
+```bash
+git commit -m 'Add some AmazingFeature'
+```
+
+4. **推送到分支**
+```bash
+git push origin feature/AmazingFeature
+```
+
+5. **创建Pull Request**
+
+## 许可证
+
+本项目采用 [MIT License](LICENSE) 许可证。
+
+## 联系方式
+
+- **项目维护者**: MoKangMedical
+- **邮箱**: contact@mokangmedical.com
+- **项目主页**: https://github.com/MoKangMedical/KnowHealth
+- **问题反馈**: https://github.com/MoKangMedical/KnowHealth/issues
+
+## 致谢
+
+感谢所有为这个项目做出贡献的开发者和医疗领域专家！
+
+---
+
+**注意**: 这是一个活跃开发中的项目，API和功能可能会发生变化。请定期查看更新日志获取最新信息。
