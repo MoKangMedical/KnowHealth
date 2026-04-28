@@ -32,11 +32,11 @@ RUN useradd --create-home --shell /bin/bash app && \
 USER app
 
 # 暴露端口
-EXPOSE 8000
+EXPOSE 8080
 
 # 健康检查
 HEALTHCHECK --interval=30s --timeout=30s --start-period=5s --retries=3 \
-    CMD curl -f http://localhost:8000/health || exit 1
+    CMD curl -f http://localhost:8080/api/v1/health || exit 1
 
 # 启动命令
-CMD ["python", "-m", "uvicorn", "src.main:app", "--host", "0.0.0.0", "--port", "8000"]
+CMD ["python", "-m", "uvicorn", "src.api.server:app", "--host", "0.0.0.0", "--port", "8080"]

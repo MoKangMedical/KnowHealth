@@ -4,7 +4,7 @@ services:
   app:
     build: .
     ports:
-      - "8000:8000"
+      - "8080:8080"
     environment:
       - DATABASE_URL=postgresql://postgres:postgres@db:5432/KnowHealth
       - REDIS_URL=redis://redis:6379/0
@@ -14,7 +14,7 @@ services:
       - redis
     volumes:
       - .:/app
-    command: python -m uvicorn src.main:app --host 0.0.0.0 --port 8000 --reload
+    command: python -m uvicorn src.api.server:app --host 0.0.0.0 --port 8080 --reload
     restart: unless-stopped
 
   db:

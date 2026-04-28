@@ -123,7 +123,7 @@ health_check() {
     
     # 检查健康端点
     for i in {1..10}; do
-        if curl -f http://localhost:8000/health > /dev/null 2>&1; then
+        if curl -f http://localhost:8080/api/v1/health > /dev/null 2>&1; then
             success "健康检查通过"
             return 0
         fi
@@ -156,7 +156,7 @@ show_info() {
     echo "  目录: $DEPLOY_DIR"
     echo "  备份: $BACKUP_DIR"
     echo "  日志: $LOG_FILE"
-    echo "  访问: http://localhost:8000"
+    echo "  访问: http://localhost:8080"
     echo "========================================="
     echo ""
 }
