@@ -14,7 +14,7 @@ asyncpg==0.29.0
 redis==5.0.0
 
 # AI/ML
-openai==1.40.0
+openai==2.34.0
 tiktoken==0.7.0
 
 # OCR & Document Processing
