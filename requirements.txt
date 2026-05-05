@@ -26,7 +26,7 @@ pdf2image==1.17.0
 Pillow==10.3.0
 
 # Translation
-deepl==1.17.0
+deepl==1.30.0
 
 # Auth & Security
 python-jose[cryptography]==3.3.0
